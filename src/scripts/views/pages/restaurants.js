@@ -1,3 +1,5 @@
+import TheRestaurantDbSource from "../../data/restaurant-api";
+
 const NowPlaying = {
   async render() {
     return `
@@ -6,6 +8,8 @@ const NowPlaying = {
   },
 
   async afterRender() {
+    const listRestaurant = await TheRestaurantDbSource.listRestaurant();
+    console.log("listRestaurant",listRestaurant);
     // Fungsi ini akan dipanggil setelah render()
   },
 };
