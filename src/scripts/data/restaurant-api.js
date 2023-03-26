@@ -14,10 +14,11 @@ class TheRestaurantDbSource {
 //     return responseJson.results;
 //   }
 
-//   static async detailMovie(id) {
-//     const response = await fetch(API_ENDPOINT.DETAIL(id));
-//     return response.json();
-//   }
+  static async detailRestaurant(id) {
+    const response = await fetch(API_ENDPOINT.DETAIL(id));
+    const responseJson = await response.json();
+    return responseJson.restaurant;
+  }
 }
 
 export default TheRestaurantDbSource;

@@ -1,17 +1,26 @@
-import TheRestaurantDbSource from "../../data/restaurant-api";
+import TheRestaurantDbSource from '../../data/restaurant-api';
+import { createMovieItemTemplate } from '../templates/template-creator';
 
-const NowPlaying = {
+const ListRestaurant = {
   async render() {
     return `
-        <h2>List Restaurant</h2>
+    <div class="content">
+    <h2 class="content__heading">List Restaurant</h2>
+    <div id="restaurant" class="movies">
+    </div>
+  </div>
       `;
   },
 
   async afterRender() {
     const listRestaurant = await TheRestaurantDbSource.listRestaurant();
-    console.log("listRestaurant",listRestaurant);
+    // console.log('listRestaurant', listRestaurant);
+    const restaurantContainer = document.querySelector('#restaurant');
     // Fungsi ini akan dipanggil setelah render()
+    listRestaurant.forEach((movie) => {
+      restaurantContainer.innerHTML += createMovieItemTemplate(movie);
+    });
   },
 };
 
-export default NowPlaying;
+export default ListRestaurant;
