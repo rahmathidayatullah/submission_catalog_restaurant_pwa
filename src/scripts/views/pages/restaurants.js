@@ -1,5 +1,5 @@
 import TheRestaurantDbSource from '../../data/restaurant-api';
-import { createMovieItemTemplate } from '../templates/template-creator';
+import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const ListRestaurant = {
   async render() {
@@ -18,7 +18,7 @@ const ListRestaurant = {
     const restaurantContainer = document.querySelector('#restaurant');
     // Fungsi ini akan dipanggil setelah render()
     listRestaurant.forEach((movie) => {
-      restaurantContainer.innerHTML += createMovieItemTemplate(movie);
+      restaurantContainer.innerHTML += createRestaurantItemTemplate(movie);
     });
   },
 };

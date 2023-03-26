@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import CONFIG from '../../globals/config';
 
-const createMovieDetailTemplate = (restaurant) => `
+const createRestaurantDetailTemplate = (restaurant) => `
 <div class="restaurant__info">
 <img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL_MEDIUM}/${restaurant.pictureId}" alt="${restaurant.name}" />
 
@@ -46,7 +46,7 @@ const createDetailListReviews = (reviews) => `
   <p class="date">${reviews.date}</p>
 </div>`;
 
-const createMovieItemTemplate = (restaurant) => `
+const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-item">
     <div class="restaurant-item__header">
       <img class="restaurant-item__header__poster" alt="${restaurant.name}"
@@ -61,6 +61,19 @@ const createMovieItemTemplate = (restaurant) => `
     </div>
   </div>
 `;
+
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this movie" id="likeButton" class="like">
+     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  </button>
+`;
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="unlike this movie" id="likeButton" class="like">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </button>
+`;
+
 export {
-  createMovieItemTemplate, createMovieDetailTemplate, createDetailListFoods, createDetailListDrinks, createDetailListReviews,
+  createRestaurantItemTemplate, createRestaurantDetailTemplate, createDetailListFoods, createDetailListDrinks, createDetailListReviews, createLikeButtonTemplate, createLikedButtonTemplate,
 };
