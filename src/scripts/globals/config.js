@@ -1,6 +1,7 @@
 const CONFIG = {
   // KEY: 'YOUR_API_KEY',
   BASE_URL: 'https://restaurant-api.dicoding.dev',
+  BASE_IMAGE_URL: 'https://image.tmdb.org/t/p/w500/',
   BASE_IMAGE_URL_SMALL: 'https://restaurant-api.dicoding.dev/images/small',
   BASE_IMAGE_URL_MEDIUM: 'https://restaurant-api.dicoding.dev/images/medium',
   BASE_IMAGE_URL_LARGE: 'https://restaurant-api.dicoding.dev/images/large',
