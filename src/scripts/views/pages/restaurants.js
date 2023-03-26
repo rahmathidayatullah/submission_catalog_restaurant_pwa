@@ -6,7 +6,7 @@ const ListRestaurant = {
     return `
     <div class="content">
     <h2 class="content__heading">List Restaurant</h2>
-    <div id="restaurant" class="movies">
+    <div id="restaurant" class="restaurants">
     </div>
   </div>
       `;

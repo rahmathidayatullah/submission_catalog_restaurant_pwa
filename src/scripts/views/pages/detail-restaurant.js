@@ -7,29 +7,29 @@ import {
 const DetailRestaurant = {
   async render() {
     return `
-          <div id="movie" class="movie"></div>
+          <div id="restaurant" class="restaurant"></div>
         `;
   },
 
   async afterRender() {
     // Fungsi ini akan dipanggil setelah render()
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const movie = await TheRestaurantDbSource.detailRestaurant(url.id);
-    const movieContainer = document.querySelector('#movie');
-    movieContainer.innerHTML = createMovieDetailTemplate(movie);
+    const restaurant = await TheRestaurantDbSource.detailRestaurant(url.id);
+    const restaurantContainer = document.querySelector('#restaurant');
+    restaurantContainer.innerHTML = createMovieDetailTemplate(restaurant);
     //
     const foodContainer = document.querySelector('#foods');
-    movie.menus.foods.forEach((food) => {
+    restaurant.menus.foods.forEach((food) => {
       foodContainer.innerHTML += createDetailListFoods(food);
     });
     //
     const drinkContainer = document.querySelector('#drinks');
-    movie.menus.foods.forEach((drink) => {
+    restaurant.menus.foods.forEach((drink) => {
       drinkContainer.innerHTML += createDetailListDrinks(drink);
     });
     //
     const reviewContainer = document.querySelector('#reviews');
-    movie.customerReviews.forEach((review) => {
+    restaurant.customerReviews.forEach((review) => {
       reviewContainer.innerHTML += createDetailListReviews(review);
     });
   },
