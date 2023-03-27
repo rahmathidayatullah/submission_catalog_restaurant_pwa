@@ -5,6 +5,18 @@ import { createRestaurantItemTemplate } from '../templates/template-creator';
 const ListRestaurant = {
   async render() {
     return `
+    <div class="jumbotron">
+        <div class="bg-transparent">
+            <div class="jumbotron__inner">
+                <h1 class="jumbotron__title">
+                    Selamat datang di website catalog restaurant, siap melayani anda
+                </h1>
+                <p class="jumbotron__tagline">
+                    Jangan ketinggalan update restoran dan menu menu terbarunya ..
+                </p>
+            </div>
+        </div>
+    </div>
     <div class="loading" id="loading">
     </div>
     <div class="content">
