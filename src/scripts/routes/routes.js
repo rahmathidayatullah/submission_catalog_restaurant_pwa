@@ -3,7 +3,7 @@ import DetailRestaurant from '../views/pages/detail-restaurant';
 import Like from '../views/pages/like';
 
 const routes = {
-  '/': Restaurants, // default page
+  '/': Restaurants,
   '/list-restaurant': Restaurants,
   '/detail/:id': DetailRestaurant,
   '/like': Like,

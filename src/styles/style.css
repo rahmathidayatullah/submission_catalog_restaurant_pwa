@@ -255,23 +255,6 @@ main {
   cursor: pointer;
 }
 
-/*
-    Footer
-  */
-
-footer {
-  padding: 16px;
-}
-
-footer p {
-  text-align: center;
-  color: #aaaaaa;
-}
-
-footer p a {
-  color: #db0000;
-  text-decoration: none;
-}
 
 .drinks,.foods{
   display: flex;
@@ -302,5 +285,103 @@ footer p a {
 }
 .foods .food_item{
   background-color: #00db21;
+}
+
+/*
+    Footer
+  */
+
+  footer {
+    padding: 16px;
+  }
+
+  footer #footerTools {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  footer p {
+    margin-top: 16px;
+    text-align: center;
+    color: #aaaaaa;
+  }
+  
+  footer p a {
+    color: #db0000;
+    text-decoration: none;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #DB0000;
+    border: 1px solid #770000;
+    border-radius: 4px;
+   
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+   
+    cursor: pointer;
+    transition: .15s ease-in-out;
+  }
+
+  .btn:hover {
+    background-color: #DB0000BB;
+  }
+  .btn:active {
+    background-color: #DB0000DD;
+  }
+  .btn:focus-visible {
+    outline: 3px solid #DB000055;
+  }
+  .wrap-input {
+    margin-top: 32px;
+  }
+  .wrap-input .btn {
+    margin-top: 10px;
+  }
+  .wrap-input input,.wrap-input textarea {
+    margin-top: 10px;
+  }
+  .wrap-input .form-input{
+    font-family: monospace;
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+  }
+
+  #loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 2rem;
+    height: 2rem;
+    border: 5px solid #f3f3f3;
+    border-top: 6px solid #9c41f2;
+    border-radius: 100%;
+    visibility: hidden;
+    animation: spin 1s infinite linear;
+}
+#loading.display {
+    visibility: visible;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 

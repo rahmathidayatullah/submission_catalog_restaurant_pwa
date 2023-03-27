@@ -7,31 +7,37 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
 </div>
     <div class="restaurant__info">
-      <h3>Information</h3>
-      <h4 class="title">Name Restaurant</h4>
-      <p class="title_desc">${restaurant.name}</p>
-      <h4 class="address">Address</h4>
-      <p class="address_desc">${restaurant.address}</p>
-      <h4 class="city">City</h4>
-      <p class="city_desc">${restaurant.city}</p>
-      <h4 class="rating">Rating</h4>
-      <p class="rating_desc">${restaurant.rating}</p>
+       <h3>Information</h3>
+       <h4 class="title">Name Restaurant</h4>
+       <p class="title_desc">${restaurant.name}</p>
+       <h4 class="address">Address</h4>
+       <p class="address_desc">${restaurant.address}</p>
+       <h4 class="city">City</h4>
+       <p class="city_desc">${restaurant.city}</p>
+       <h4 class="rating">Rating</h4>
+       <p class="rating_desc">${restaurant.rating}</p>
     </div>
     <div class="restaurant__overview">
-      <h3>Menu Foods</h3>
-      <div class="foods" id="foods">
-      </div>
+       <h3>Menu Foods</h3>
+       <div class="foods" id="foods">
+       </div>
     </div>
     <div class="restaurant__overview">
-      <h3>Menu Drinks</h3>
-      <div class="drinks" id="drinks">
+       <h3>Menu Drinks</h3>
+       <div class="drinks" id="drinks">
     </div>
-      <div class="restaurant__overview">
-        <h3>Description</h3>
-        <p>${restaurant.description}</p>
+       <div class="restaurant__overview">
+          <h3>Description</h3>
+          <p>${restaurant.description}</p>
+      </div>
+      <div class="wrap-input">
+         <h3>Add Reviews</h3>
+         <input class="form-input" type="text" id="inputName" placeholder="Masukan nama anda ..." />
+         <textarea rows="7" class="form-input" id="inputReview" name="textarea" placeholder="Masukan reviews anda untuk cafe ini ..."></textarea>
+         <button class="btn" id="buttonSave">Submit Review</button>
       </div>
       <div class="restaurant__overview">
-        <h3>Customer Reviews</h3>
+          <h3>Customer Reviews</h3>
       </div>
       <div class="reviews" id="reviews">
       </div>

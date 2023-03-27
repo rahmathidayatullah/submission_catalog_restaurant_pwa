@@ -16,8 +16,6 @@ const WebSocketInitiator = {
         image: `${CONFIG.BASE_IMAGE_URL + movie.poster_path}`,
       },
     });
-    // console.log('data dari server testing websocket', message.data);
-    // console.log('parsing data response', JSON.parse(message.data));
   },
 };
 export default WebSocketInitiator;
