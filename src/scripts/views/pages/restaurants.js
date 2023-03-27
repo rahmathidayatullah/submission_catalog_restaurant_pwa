@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import TheRestaurantDbSource from '../../data/restaurant-api';
 import { createRestaurantItemTemplate } from '../templates/template-creator';
 

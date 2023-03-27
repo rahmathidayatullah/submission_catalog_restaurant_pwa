@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import Restaurants from '../views/pages/restaurants';
 import DetailRestaurant from '../views/pages/detail-restaurant';
 import Like from '../views/pages/like';

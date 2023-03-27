@@ -11,6 +11,13 @@ body {
   flex-direction: column;
 }
 
+button,
+input,
+a {
+  min-height: 44px !important;
+  min-width: 44px !important;
+}
+
 /*
     AppBar
   */
@@ -76,6 +83,10 @@ body {
   width: 100%;
 }
 
+.app-bar .app-bar__navigation ul li a:last-child {
+  justify-content: flex-end;
+}
+
 /*
     Main Content
   */
@@ -104,12 +115,14 @@ main {
   gap: 16px;
   margin: 32px 0;
 }
+
 .reviews {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
   margin: 32px 0;
 }
+
 .reviews .review-item {
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -118,17 +131,21 @@ main {
   box-sizing: border-box;
   padding: 1rem;
 }
-.reviews .review-item .title{
+
+.reviews .review-item .title {
   font-size: 24px;
 }
-.reviews .review-item .description{
+
+.reviews .review-item .description {
   font-size: 14px;
   margin-top: 0.6rem;
 }
-.reviews .review-item .date{
+
+.reviews .review-item .date {
   font-size: 10px;
 }
-.reviews .review-item .hr{
+
+.reviews .review-item .hr {
   margin: 0.3rem 0;
   border-color: #ffffff30;
 }
@@ -164,10 +181,7 @@ main {
   color: white;
 }
 
-.restaurant-item
-  .restaurant-item__header
-  .restaurant-item__header__rating
-  .restaurant-item__header__rating__score {
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating .restaurant-item__header__rating__score {
   margin-left: 10px;
 }
 
@@ -177,18 +191,23 @@ main {
 
 .restaurant-item .restaurant-item__content h3 {
   margin: 0 0 10px 0;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 .restaurant-item .restaurant-item__content h3 a {
   color: #db0000;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
 .restaurant-item .restaurant-item__content p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 4; /* number of lines to show */
+  -webkit-line-clamp: 4;
+  /* number of lines to show */
   -webkit-box-orient: vertical;
 }
 
@@ -210,28 +229,32 @@ main {
   max-width: 400px;
 }
 
-.restaurant .restaurant__info{
+.restaurant .restaurant__info {
   background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 0.25rem;
-    padding: 1rem;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, .125);
+  border-radius: 0.25rem;
+  padding: 1rem;
 }
+
 .restaurant .restaurant__info h3 {
   margin: 0;
   font-size: 24px;
   border-bottom: 1px solid;
 }
+
 .restaurant .restaurant__info h4 {
   margin: 0;
 }
+
 .restaurant .restaurant__info h4.title,
 .restaurant .restaurant__info h4.address,
 .restaurant .restaurant__info h4.city,
 .restaurant .restaurant__info h4.rating {
   margin-top: 1rem;
 }
-.restaurant .restaurant__overview{
+
+.restaurant .restaurant__overview {
   margin-top: 32px;
 }
 
@@ -243,20 +266,21 @@ main {
   align-items: center;
   justify-content: center;
   background-color: #db0000;
-  
+
   position: fixed;
   bottom: 16px;
   right: 16px;
   border-radius: 50%;
   border: 0;
-  
+
   font-size: 18px;
   color: white;
   cursor: pointer;
 }
 
 
-.drinks,.foods{
+.drinks,
+.foods {
   display: flex;
   gap: 0.6rem;
   padding: 1rem 1rem 0 0;
@@ -267,7 +291,9 @@ main {
   border-top-right-radius: 0.25rem;
   flex-wrap: wrap;
 }
-.drink_item,.food_item{
+
+.drink_item,
+.food_item {
   display: inline-block;
   padding: 0.35em 0.65em;
   font-size: .75em;
@@ -278,12 +304,14 @@ main {
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25rem;
-  
+
 }
-.drinks .drink_item{
+
+.drinks .drink_item {
   background-color: #0004db;
 }
-.foods .food_item{
+
+.foods .food_item {
   background-color: #00db21;
 }
 
@@ -291,97 +319,179 @@ main {
     Footer
   */
 
-  footer {
-    padding: 16px;
-  }
-
-  footer #footerTools {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
-  }
-  
-  footer p {
-    margin-top: 16px;
-    text-align: center;
-    color: #aaaaaa;
-  }
-  
-  footer p a {
-    color: #db0000;
-    text-decoration: none;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #DB0000;
-    border: 1px solid #770000;
-    border-radius: 4px;
-   
-    font-weight: 500;
-    font-size: 16px;
-    color: #ffffff;
-   
-    cursor: pointer;
-    transition: .15s ease-in-out;
-  }
-
-  .btn:hover {
-    background-color: #DB0000BB;
-  }
-  .btn:active {
-    background-color: #DB0000DD;
-  }
-  .btn:focus-visible {
-    outline: 3px solid #DB000055;
-  }
-  .wrap-input {
-    margin-top: 32px;
-  }
-  .wrap-input .btn {
-    margin-top: 10px;
-  }
-  .wrap-input input,.wrap-input textarea {
-    margin-top: 10px;
-  }
-  .wrap-input .form-input{
-    font-family: monospace;
-    display: block;
-    width: 100%;
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #212529;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-  }
-
-  #loading {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 2rem;
-    height: 2rem;
-    border: 5px solid #f3f3f3;
-    border-top: 6px solid #9c41f2;
-    border-radius: 100%;
-    visibility: hidden;
-    animation: spin 1s infinite linear;
+footer {
+  padding: 16px;
 }
+
+footer #footerTools {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+footer p {
+  margin-top: 16px;
+  text-align: center;
+  color: #aaaaaa;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+}
+
+footer p a {
+  color: #db0000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0 7px 0 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #DB0000;
+  border: 1px solid #770000;
+  border-radius: 4px;
+
+  font-weight: 500;
+  font-size: 16px;
+  color: #ffffff;
+
+  cursor: pointer;
+  transition: .15s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #DB0000BB;
+}
+
+.btn:active {
+  background-color: #DB0000DD;
+}
+
+.btn:focus-visible {
+  outline: 3px solid #DB000055;
+}
+
+.wrap-input {
+  margin-top: 32px;
+}
+
+.wrap-input .btn {
+  margin-top: 10px;
+}
+
+.wrap-input input,
+.wrap-input textarea {
+  margin-top: 10px;
+}
+
+.wrap-input .form-input {
+  font-family: monospace;
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #bf1722;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  min-width: 44px;
+  min-height: 44px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+#loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2rem;
+  height: 2rem;
+  border: 5px solid #f3f3f3;
+  border-top: 6px solid #9c41f2;
+  border-radius: 100%;
+  visibility: hidden;
+  animation: spin 1s infinite linear;
+}
+
 #loading.display {
-    visibility: visible;
-}
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  visibility: visible;
 }
 
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+.jumbotron {
+  margin-top: 20px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  min-height: 380px;
+  width: 100%;
+  text-align: center;
+  background-image: url("../images/hero-image_2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.jumbotron .bg-transparent {
+  position: absolute;
+  inset: 0;
+  background-color: #0000008c;
+}
+
+.jumbotron__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.jumbotron__title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 36px;
+  text-decoration: none;
+}
+
+.jumbotron__tagline {
+  text-decoration: none;
+  color: #fff;
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 300;
+}
