@@ -452,6 +452,7 @@ footer p a {
 
 
 .jumbotron {
+  display: none !important;
   margin-bottom: 30px;
   border: 1px solid black;
   display: flex;
@@ -464,6 +465,10 @@ footer p a {
   background-size: cover;
   background-position: center;
   position: relative;
+}
+
+.jumbotron.display {
+  display: block !important;
 }
 
 .jumbotron .bg-transparent {

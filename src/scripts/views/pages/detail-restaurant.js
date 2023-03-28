@@ -30,6 +30,8 @@ const DetailRestaurant = {
   async afterRender() {
     const loader = document.querySelector('#loading');
     loader.classList.add('display');
+    const wrapperContent = document.querySelector('#jumbotron');
+    wrapperContent.classList.remove('display');
 
     // Fungsi ini akan dipanggil setelah render()
     const url = UrlParser.parseActiveUrlWithoutCombiner();

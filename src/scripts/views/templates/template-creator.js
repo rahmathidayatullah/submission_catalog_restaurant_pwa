@@ -74,6 +74,18 @@ const createLikeButtonTemplate = () => `
   </button>
 `;
 
+const createJumbotron = () => `
+<div class="bg-transparent">
+    <div class="jumbotron__inner">
+        <h1 class="jumbotron__title">
+            Selamat datang di website catalog restaurant, siap melayani anda
+        </h1>
+        <p class="jumbotron__tagline">
+            Jangan ketinggalan update restoran dan menu menu terbarunya ..
+        </p>
+    </div>
+</div>`;
+
 const createLikedButtonTemplate = () => `
   <button aria-label="unlike this movie" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
@@ -81,5 +93,5 @@ const createLikedButtonTemplate = () => `
 `;
 
 export {
-  createRestaurantItemTemplate, createRestaurantDetailTemplate, createDetailListFoods, createDetailListDrinks, createDetailListReviews, createLikeButtonTemplate, createLikedButtonTemplate,
+  createRestaurantItemTemplate, createRestaurantDetailTemplate, createDetailListFoods, createDetailListDrinks, createDetailListReviews, createLikeButtonTemplate, createLikedButtonTemplate, createJumbotron,
 };

@@ -19,13 +19,13 @@
 
 <body>
     <header class="app-bar">
+        <a href="#mainContent" tabindex="0" class="skip-link">Menuju ke konten</a>
         <div class="app-bar__menu">
             <button id="hamburgerButton">☰</button>
         </div>
         <div class="app-bar__brand">
             <h1>Catalog Retaurant</h1>
         </div>
-        <a href="#mainContent" tabindex="0" class="skip-link">Menuju ke konten</a>
         <nav id="navigationDrawer" class="app-bar__navigation">
             <ul>
                 <li><a href="#/list-restaurant">List Restaurant</a></li>
@@ -36,8 +36,8 @@
     </header>
 
 
-
-    <main id="mainContent"></main>
+    <div id="jumbotron" class="jumbotron"></div>
+    <main id="mainContent" tabindex="0"></main>
     <footer>
         <div id="footerTools">
             <button id="subscribePushNotification" class="btn">Subscribe Push Notification</button>
