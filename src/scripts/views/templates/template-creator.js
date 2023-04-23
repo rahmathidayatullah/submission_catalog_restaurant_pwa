@@ -86,12 +86,12 @@ const createJumbotron = () => `
     </div>
 </div>`;
 
-const createLikedButtonTemplate = () => `
+const createUnlikeButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
 export {
-  createRestaurantItemTemplate, createRestaurantDetailTemplate, createDetailListFoods, createDetailListDrinks, createDetailListReviews, createLikeButtonTemplate, createLikedButtonTemplate, createJumbotron,
+  createRestaurantItemTemplate, createRestaurantDetailTemplate, createDetailListFoods, createDetailListDrinks, createDetailListReviews, createLikeButtonTemplate, createUnlikeButtonTemplate, createJumbotron,
 };
