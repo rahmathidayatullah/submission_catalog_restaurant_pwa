@@ -12,16 +12,24 @@ class FavoriteRestaurantSearchPresenter {
   }
 
   async _searchRestaurants(latestQuery) {
-    this._latestQuery = latestQuery;
+    // this._latestQuery = latestQuery;
+    this._latestQuery = latestQuery.trim();
 
-    const foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
+    // const foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
+
+    let foundRestaurants;
+    if (this.latestQuery.length > 0) {
+      foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
+    } else {
+      foundRestaurants = await this._favoriteRestaurants.getAllRestaurants();
+    }
 
     // this._favoriteRestaurants.searchRestaurants(this._latestQuery);
     this._showFoundRestaurants(foundRestaurants);
   }
 
   _showFoundRestaurants(restaurants) {
-    console.log("restaurants", restaurants);
+    console.log('restaurants', restaurants);
     const html = restaurants.reduce(
       (carry, restaurant) => carry.concat(`
           <li class="movie">
