@@ -1,7 +1,7 @@
-import FavoriteRestaurantSearchPresenter from '../src/scripts/views/pages/liked/favorite-restaurant-search-presenter.js';
+import FavoriteRestaurantSearchPresenter from '../src/scripts/views/pages/liked/favorite-restaurant-search-presenter';
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb';
 
-describe('Searching restaurants', () => {
+describe('Searching Restaurants', () => {
   let presenter;
 
   const searchRestaurants = (query) => {
@@ -71,5 +71,39 @@ describe('Searching restaurants', () => {
   it('should show - for found restaurants without title', () => {
     presenter._showFoundRestaurants([{ id: 1 }]);
     expect(document.querySelectorAll('.movie__title').item(0).textContent).toEqual('-');
+  });
+  it('should show the movies found by Favorite Restaurants', (done) => {
+    document.getElementById('movie-search-container')
+      .addEventListener('movies:searched:updated', () => {
+        expect(document.querySelectorAll('.movie').length).toEqual(3);
+        done();
+      });
+
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('film a').and.returnValues([
+      { id: 111, title: 'film abc' },
+      { id: 222, title: 'ada juga film abcde' },
+      { id: 333, title: 'ini juga boleh film a' },
+    ]);
+
+    setRestaurantSearchContainer('film a');
+    expect(document.querySelectorAll('.movie').length).toEqual(3);
+  });
+  it('should show the name of the movies found by Favorite Restaurants', (done) => {
+    document.getElementById('movie-search-container').addEventListener('movies:searched:updated', () => {
+      const movieTitles = document.querySelectorAll('.movie__title');
+      expect(movieTitles.item(0).textContent).toEqual('film abc');
+      expect(movieTitles.item(1).textContent).toEqual('ada juga film abcde');
+      expect(movieTitles.item(2).textContent).toEqual('ini juga boleh film a');
+
+      done();
+    });
+
+    FavoriteRestaurantIdb.searchRestaurants.withArgs('film a').and.returnValues([
+      { id: 111, title: 'film abc' },
+      { id: 222, title: 'ada juga film abcde' },
+      { id: 333, title: 'ini juga boleh film a' },
+    ]);
+
+    setRestaurantSearchContainer('film a');
   });
 });

@@ -11,12 +11,17 @@ class FavoriteRestaurantSearchPresenter {
     });
   }
 
-  _searchRestaurants(latestQuery) {
+  async _searchRestaurants(latestQuery) {
     this._latestQuery = latestQuery;
-    this._favoriteRestaurants.searchRestaurants(this._latestQuery);
+
+    const foundRestaurants = await this._favoriteRestaurants.searchRestaurants(this.latestQuery);
+
+    // this._favoriteRestaurants.searchRestaurants(this._latestQuery);
+    this._showFoundRestaurants(foundRestaurants);
   }
 
   _showFoundRestaurants(restaurants) {
+    console.log("restaurants", restaurants);
     const html = restaurants.reduce(
       (carry, restaurant) => carry.concat(`
           <li class="movie">
