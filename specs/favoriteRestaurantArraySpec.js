@@ -34,6 +34,17 @@ const FavoriteRestaurantArray = {
     // kecuali film dengan id == id
     favoriteRestaurants = favoriteRestaurants.filter((restaurant) => restaurant.id !== id);
   },
+
+  searchRestaurants(query) {
+    return this.getAllRestaurants()
+      .filter((restaurant) => {
+        const loweredCaseMovieTitle = (restaurant.title || '-').toLowerCase();
+        const jammedMovieTitle = loweredCaseMovieTitle.replace(/\s/g, '');
+        const loweredCaseQuery = query.toLowerCase();
+        const jammedQuery = loweredCaseQuery.replace(/\s/g, '');
+        return jammedMovieTitle.indexOf(jammedQuery) !== -1;
+      });
+  },
 };
 
 describe('Favorite Restaurant Array Contract Test Implementation', () => {
