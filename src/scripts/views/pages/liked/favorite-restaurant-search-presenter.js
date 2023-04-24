@@ -29,16 +29,29 @@ class FavoriteRestaurantSearchPresenter {
   }
 
   _showFoundRestaurants(restaurants) {
-    console.log('restaurants', restaurants);
-    const html = restaurants.reduce(
-      (carry, restaurant) => carry.concat(`
-          <li class="movie">
-            <span class="movie__title">${restaurant.title || '-'}</span>
-          </li>
-        `),
-      '',
-    );
+    // console.log('restaurants', restaurants);
+    // const html = restaurants.reduce(
+    //   (carry, restaurant) => carry.concat(`
+    //       <li class="movie">
+    //         <span class="movie__title">${restaurant.title || '-'}</span>
+    //       </li>
+    //     `),
+    //   '',
+    // );
+
+    let html;
+    if (restaurants && restaurants.length > 0) {
+      html = restaurants.reduce(
+        (carry, restaurant) => carry.concat(`<li class="movie"><span class="movie__title">${restaurant.title || '-'}</span></li>`),
+        '',
+      );
+    } else {
+      html = '<div class="movies__not__found">Film tidak ditemukan</div>';
+    }
+
     document.querySelector('.movies').innerHTML = html;
+    document.getElementById('movie-search-container')
+      .dispatchEvent(new Event('movies:searched:updated'));
   }
 
   get latestQuery() {

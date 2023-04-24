@@ -74,7 +74,7 @@ describe('Searching Restaurants', () => {
       presenter._showFoundRestaurants([{ id: 1 }]);
       expect(document.querySelectorAll('.movie__title').item(0).textContent).toEqual('-');
     });
-    it('should show the movies found by Favorite Restaurants', (done) => {
+    it('should show the restaurants found by Favorite Restaurants', (done) => {
       document.getElementById('movie-search-container')
         .addEventListener('movies:searched:updated', () => {
           expect(document.querySelectorAll('.movie').length).toEqual(3);
@@ -90,7 +90,7 @@ describe('Searching Restaurants', () => {
       setRestaurantSearchContainer('film a');
       expect(document.querySelectorAll('.movie').length).toEqual(3);
     });
-    it('should show the name of the movies found by Favorite Restaurants', (done) => {
+    it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
       document.getElementById('movie-search-container').addEventListener('movies:searched:updated', () => {
         const movieTitles = document.querySelectorAll('.movie__title');
         expect(movieTitles.item(0).textContent).toEqual('film abc');
@@ -151,7 +151,7 @@ describe('Searching Restaurants', () => {
 
       searchRestaurants('film a');
     });
-    it('should show the name of the movies found by Favorite Restaurants', (done) => {
+    it('should show the name of the restaurants found by Favorite Restaurants', (done) => {
       document.getElementById('movie-search-container')
         .addEventListener('movies:searched:updated', () => {
           const movieTitles = document.querySelectorAll('.movie__title');
@@ -175,10 +175,33 @@ describe('Searching Restaurants', () => {
 
       searchRestaurants('film a');
     });
-    it('should show all favorite movies', () => {
+    it('should show all favorite restaurants', () => {
       searchRestaurants('    ');
       expect(favoriteRestaurants.getAllRestaurants)
         .toHaveBeenCalled();
+    });
+  });
+
+  describe('When no favorite restaurants could be found', () => {
+    it('should show the empty message', (done) => {
+      document.getElementById('movie-search-container')
+        .addEventListener('movies:searched:updated', () => {
+          expect(document.querySelectorAll('.movies__not__found').length).toEqual(1);
+          done();
+        });
+
+      favoriteRestaurants.searchRestaurants.withArgs('film a').and.returnValues([]);
+
+      searchRestaurants('film a');
+    });
+
+    it('should not show any restaurant', (done) => {
+      document.getElementById('movie-search-container').addEventListener('movies:searched:updated', () => {
+        expect(document.querySelectorAll('.movie').length).toEqual(0);
+        done();
+      });
+      favoriteRestaurants.searchRestaurants.withArgs('film a').and.returnValues([]);
+      searchRestaurants('film a');
     });
   });
 });
