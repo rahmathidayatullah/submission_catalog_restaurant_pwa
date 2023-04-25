@@ -3,7 +3,7 @@ name: Continuous Integration
 on:
   pull_request:
     branches:
-      - 03-final-deploy-prepare-ci-cd
+      - main3
  
 jobs:
   test:
@@ -11,7 +11,7 @@ jobs:
  
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [14.x]
  
     steps:
       - uses: actions/checkout@v3
