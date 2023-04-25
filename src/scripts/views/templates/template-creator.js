@@ -62,10 +62,14 @@ const createRestaurantItemTemplate = (restaurant) => `
       </div>
     </div>
     <div class="restaurant-item__content">
-      <h3><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
+      <h3 class="movie__title"><a href="/#/detail/${restaurant.id}">${restaurant.name}</a></h3>
       <p>${restaurant.description}</p>
     </div>
   </div>
+`;
+
+const createNotFoundItemsLike = () => `
+  <h4 class="restaurant-item__not__found">Not found data ...</h4>
 `;
 
 const createLikeButtonTemplate = () => `
@@ -93,5 +97,5 @@ const createLikedButtonTemplate = () => `
 `;
 
 export {
-  createRestaurantItemTemplate, createRestaurantDetailTemplate, createDetailListFoods, createDetailListDrinks, createDetailListReviews, createLikeButtonTemplate, createLikedButtonTemplate, createJumbotron,
+  createRestaurantItemTemplate, createRestaurantDetailTemplate, createDetailListFoods, createDetailListDrinks, createDetailListReviews, createLikeButtonTemplate, createLikedButtonTemplate, createJumbotron, createNotFoundItemsLike,
 };

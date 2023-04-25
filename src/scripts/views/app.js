@@ -30,8 +30,8 @@ class App {
         document.querySelector('#mainContent').focus();
       });
     } catch (error) {
-      alert('Somthing wrong ..');
-      window.location.href = '/';
+      // alert('Somthing wrong ..');
+      // window.location.href = '/';
     }
   }
 }
