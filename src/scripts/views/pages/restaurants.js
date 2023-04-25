@@ -24,6 +24,7 @@ const ListRestaurant = {
     await TheRestaurantDbSource.listRestaurant().then((listRestaurant) => {
       const restaurantContainer = document.querySelector('#restaurant');
       // Fungsi ini akan dipanggil setelah render()
+
       listRestaurant.forEach((restaurant) => {
         restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
       });

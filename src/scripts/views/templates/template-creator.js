@@ -3,8 +3,11 @@ import CONFIG from '../../globals/config';
 
 const createRestaurantDetailTemplate = (restaurant) => `
 <div class="restaurant__info">
-<img class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL_MEDIUM}/${restaurant.pictureId}" alt="${restaurant.name}" />
-
+  <picture>
+   <source media="(max-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL_SMALL}/${restaurant.pictureId}" type="image/webp">
+   <source media="(max-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL_SMALL}/${restaurant.pictureId}" type="image/jpeg">
+   <img loading="lazy" width="400" height="260" class="restaurant__poster" src="${CONFIG.BASE_IMAGE_URL_MEDIUM}/${restaurant.pictureId}" alt="${restaurant.name}" />
+  </picture>
 </div>
     <div class="restaurant__info">
        <h3>Information</h3>
@@ -55,8 +58,14 @@ const createDetailListReviews = (reviews) => `
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-item">
     <div class="restaurant-item__header">
-      <img class="restaurant-item__header__poster" alt="${restaurant.name}"
-           src="${restaurant.pictureId ? `${CONFIG.BASE_IMAGE_URL_MEDIUM}/${restaurant.pictureId}` : 'https://picsum.photos/id/666/800/450?grayscale'}">
+    <picture>
+   <source media="(max-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL_SMALL}/${restaurant.pictureId}" type="image/webp">
+   <source media="(max-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL_SMALL}/${restaurant.pictureId}" type="image/jpeg">
+   <img class="lazyload" loading="lazy" width="400" height="260" class="restaurant-item__header__poster" alt="${restaurant.name}"
+   data-src="${restaurant.pictureId ? `${CONFIG.BASE_IMAGE_URL_MEDIUM}/${restaurant.pictureId}` : 'https://picsum.photos/id/666/800/450?grayscale'}">
+  </picture>
+
+      
       <div class="restaurant-item__header__rating">
         <p>⭐️<span class="restaurant-item__header__rating__score">${restaurant.rating}</span></p>
       </div>
