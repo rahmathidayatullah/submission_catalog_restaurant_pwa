@@ -1,9 +1,12 @@
+/* eslint-disable no-alert */
 import TheRestaurantDbSource from '../../data/restaurant-api';
-import { createMovieItemTemplate } from '../templates/template-creator';
+import { createJumbotron, createRestaurantItemTemplate } from '../templates/template-creator';
 
 const ListRestaurant = {
   async render() {
     return `
+    <div class="loading" id="loading">
+    </div>
     <div class="content">
     <h2 class="content__heading">List Restaurant</h2>
     <div id="restaurant" class="restaurants">
@@ -13,12 +16,22 @@ const ListRestaurant = {
   },
 
   async afterRender() {
-    const listRestaurant = await TheRestaurantDbSource.listRestaurant();
-    // console.log('listRestaurant', listRestaurant);
-    const restaurantContainer = document.querySelector('#restaurant');
-    // Fungsi ini akan dipanggil setelah render()
-    listRestaurant.forEach((movie) => {
-      restaurantContainer.innerHTML += createMovieItemTemplate(movie);
+    const loader = document.querySelector('#loading');
+    const wrapperContent = document.querySelector('#jumbotron');
+    wrapperContent.classList.add('display');
+    wrapperContent.innerHTML = createJumbotron();
+    loader.classList.add('display');
+    await TheRestaurantDbSource.listRestaurant().then((listRestaurant) => {
+      const restaurantContainer = document.querySelector('#restaurant');
+      // Fungsi ini akan dipanggil setelah render()
+
+      listRestaurant.forEach((restaurant) => {
+        restaurantContainer.innerHTML += createRestaurantItemTemplate(restaurant);
+      });
+    }).catch(() => {
+      alert('Gagal get list data catalog');
+    }).finally(() => {
+      loader.classList.remove('display');
     });
   },
 };

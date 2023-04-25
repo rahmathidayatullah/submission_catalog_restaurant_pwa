@@ -7,17 +7,19 @@
     <meta name="description" content="Free restaurant catalogue for you">
     <meta name="theme-color" content="#DB0000" />
 
-    <link rel="icon" href="./favicon.png">
+    <link rel="icon" href="./faviconCS.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="manifest" href="./app.webmanifest">
     <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
 
+    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
     <title>Catalog Retaurant</title>
 
 </head>
 
 <body>
     <header class="app-bar">
+        <a href="#mainContent" tabindex="0" class="skip-link">Menuju ke konten</a>
         <div class="app-bar__menu">
             <button id="hamburgerButton">☰</button>
         </div>
@@ -27,13 +29,21 @@
         <nav id="navigationDrawer" class="app-bar__navigation">
             <ul>
                 <li><a href="#/list-restaurant">List Restaurant</a></li>
-                <!-- <li><a href="#/upcoming">Upcoming</a></li> -->
-                <!-- <li><a href="#/upcoming">Upcoming</a></li> -->
+                <li><a href="#/like">Favorite</a></li>
+                <li><a target="_blank" rel="noreferrer"
+                        href="https://www.linkedin.com/in/rahmat-hidayatullah-909aab151/">About Us</a></li>
             </ul>
         </nav>
     </header>
-    <main id="mainContent"></main>
+
+
+    <div id="jumbotron" class="jumbotron"></div>
+    <main id="mainContent" tabindex="0"></main>
     <footer>
+        <div id="footerTools">
+            <button id="subscribePushNotification" class="btn">Subscribe Push Notification</button>
+            <button id="unsubscribePushNotification" class="btn">Unsubscribe Push Notification</button>
+        </div>
         <p>All data obtained from <a href="https://restaurant-api.dicoding.dev" target="_blank"
                 rel="noreferrer">Dicoding</a></p>
     </footer>
