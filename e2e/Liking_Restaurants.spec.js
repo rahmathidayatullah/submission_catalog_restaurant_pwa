@@ -13,23 +13,56 @@ Scenario('showing empty liked restaurants', ({ I }) => {
 Scenario('linking one restaurants', async ({ I }) => {
   I.see('Not found data ...', '.restaurant-item__not__found');
   I.amOnPage('/');
-  I.waitForElement('.movie__title a', 10);
-  I.seeElement('.movie__title a');
+  I.waitForElement('.restaurant__title a', 10);
+  I.seeElement('.restaurant__title a');
 
-  const firstFilm = locate('.movie__title a').first();
+  const firstRestaurant = locate('.restaurant__title a').first();
 
-  const firstFilmTitle = await I.grabTextFrom(firstFilm);
+  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
 
-  I.click(firstFilm);
+  I.click(firstRestaurant);
   I.waitForElement('#likeButton', 10);
   I.seeElement('#likeButton');
   I.click('#likeButton');
   I.amOnPage('/#/like');
   I.waitForElement('.restaurant-item', 10);
   I.seeElement('.restaurant-item');
-  I.waitForElement('.movie__title', 10);
+  I.waitForElement('.restaurant__title', 10);
 
-  const likedFilmTitle = await I.grabTextFrom('.movie__title');
+  const likedRestaurantTitle = await I.grabTextFrom('.restaurant__title');
 
-  assert.strictEqual(firstFilmTitle, likedFilmTitle);
+  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+});
+Scenario('cancel liking one restaurant', async ({ I }) => {
+  I.see('Not found data ...', '.restaurant-item__not__found');
+  I.amOnPage('/');
+  I.waitForElement('.restaurant__title a', 10);
+  I.seeElement('.restaurant__title a');
+
+  const firstRestaurant = locate('.restaurant__title a').first();
+
+  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
+
+  I.click(firstRestaurant);
+
+  I.waitForElement('#likeButton', 10);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/like');
+
+  I.waitForElement('.restaurant-item', 10);
+  I.seeElement('.restaurant-item');
+  I.waitForElement('.restaurant__title', 10);
+
+  const likedRestaurantTitle = await I.grabTextFrom('.restaurant__title');
+
+  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+
+  I.click(firstRestaurant);
+  I.waitForElement('#likeButton', 10);
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+  I.amOnPage('/#/like');
+  I.see('Not found data ...', '.restaurant-item__not__found');
 });

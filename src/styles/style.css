@@ -106,7 +106,7 @@ main {
 }
 
 /*
-    Movies
+    Restaurants
   */
 
 .restaurants {
@@ -153,7 +153,7 @@ main {
 
 
 /*
-    Movie Item
+    Restaurant Item
   */
 
 .restaurant-item {
@@ -212,7 +212,7 @@ main {
 }
 
 /*
-    Movie
+    Restaurant
   */
 
 .restaurant {
@@ -460,7 +460,7 @@ footer p a {
   min-height: 380px;
   width: 100%;
   text-align: center;
-  background-image: url("../images/hero-image_2.jpg");
+  background-image: url("../images/hero-image_large.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
