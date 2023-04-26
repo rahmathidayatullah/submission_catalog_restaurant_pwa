@@ -57,6 +57,10 @@
   .jumbotron__title {
     font-size: 27px;
   }
+  .jumbotron {
+    background-image: url("../images/hero-image_small.jpg");
+}
+
 }
 
 @media screen and (min-width: 800px) {
